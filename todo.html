@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>To-Do</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script  type="text/javascript">
+    $(document).ready(function(){
+
+    function addListItem() {
+        var text = $("#new-text").val();
+            $("#todolist").prepend('<li class="delete">'+text+'</li>')
+            $("#new-text").val('');
+            alert('"'+text+'" has been hadded to the list!')
+    }
+
+    function deleteItem() {
+        $(this).remove();
+    } 
+
+        $(function() {
+            $("#add").on('click', addListItem);
+            $(".delete").on('click', deleteItem);
+        });
+    });
+</script>
+</head>
+<body>
+    <input type="text" id="new-text" placeholder="todo"/>
+    <button id="add">Add Item</button>
+    <ul id="todolist">
+        <li class='delete'>Get Groceries</li>
+        <li class='delete'>Pick up Kids</li>
+        <li class='delete'>Go to Bank</li>
+        <li class='delete'>Clean House</li>
+    </ul>
+</body>
+</html>
